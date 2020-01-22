@@ -5,11 +5,155 @@
     <title>Reiki</title>
   </head>
 
-  <body>
-    <h1>Added by Engramar</h1>
-    <h2>Added by Flora</h2>
-    <h2>Prashanga's commit</h2>
-    <h2>Added by Julia K</h2>
-    <p>Trying a second commit</p>
-  </body>
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding.
+30-Min sku_Gb2J2bC1nkNTj8
+60-Min sku_Gb2YLKFZUvE2Lu
+90-Min sku_Gb2ZF60ea5FQhD
+-->
+<h2>
+Project Reiki
+</h2>
+
+<h5>
+  Test Credit Card Number 4242 4242 4242 4242
+  <br/>
+  Any Future Expiry Date
+  <br/>
+  Any CVV Number
+</h5>
+
+<div>
+  <p>
+    <button
+    style="background-color:rgb(96, 99, 128);color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+    id="checkout-button-sku_Gb2J2bC1nkNTj8"
+    role="link"
+    >
+      Buy 30-min Session
+    </button>
+  </p>
+</div>
+
+<div>
+  <p>
+    <button
+    style="background-color:rgb(96, 99, 128);color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+    id="checkout-button-sku_Gb2YLKFZUvE2Lu"
+    role="link"
+    >
+      Buy 60-min Session
+    </button>      
+  </p>
+</div>
+
+<div>
+  <p>
+    <button
+    style="background-color:rgb(96, 99, 128);color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+    id="checkout-button-sku_Gb2ZF60ea5FQhD"
+    role="link"
+    >
+      Buy 90-min Session
+    </button>    
+  </p>
+</div>
+
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_test_I9Um4s8LbGcwu6Mrt7qL5mhy');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_Gb2J2bC1nkNTj8');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_Gb2J2bC1nkNTj8', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/success',
+      cancelUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+
+(function() {
+  var stripe = Stripe('pk_test_I9Um4s8LbGcwu6Mrt7qL5mhy');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_Gb2YLKFZUvE2Lu');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_Gb2YLKFZUvE2Lu', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/success',
+      cancelUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+
+(function() {
+  var stripe = Stripe('pk_test_I9Um4s8LbGcwu6Mrt7qL5mhy');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_Gb2ZF60ea5FQhD');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_Gb2ZF60ea5FQhD', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/success',
+      cancelUrl: 'https://master.d1yw8l63hebzqa.amplifyapp.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+
+</script>
+  
+  <div id="error-message"></div>
+
 </html>
